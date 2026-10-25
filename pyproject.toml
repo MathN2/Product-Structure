@@ -1,0 +1,51 @@
+[project]
+name = "product-structure"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "mathN2",email = "matheus-novais-de-ramos@hotmail.com"},
+    {name = "dudu5569", email = "duardo.rlsants@gmail.com"},
+    {name = "enrique-nog", email = "enriquenogueirasilva@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.14, <4.0"
+dependencies = [
+    "fastapi[standard] (>=0.150.0,<0.151.0)",
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "pytest (>=9.1.1,<10.0.0)",
+    "ruff (>=0.17.2,<0.18.0)",
+    "taskipy (>=1.14.1,<2.0.0)"
+]
+
+
+# RUFF CONFIG
+[tool.ruff]
+line-length = 79
+
+[tool.ruff.lint]
+preview = true
+
+[tool.ruff.format]
+preview = true
+
+# PYTEST CONFIG
+[tool.pytest.ini_options]
+pythonpath = "."
+
+# TASKIPY CONFIG
+[tool.taskipy.tasks]
+lint = 'ruff check'
+pre_format = 'ruff check --fix'
+format = 'ruff format'
+run = 'fastapi dev fast_zero/app.py'
+pre_test = 'task lint'
+test = 'pytest -s -x --cov=fast_zero --cov-report=term-missing -vv'
+post_test = 'coverage html'
