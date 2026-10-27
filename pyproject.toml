@@ -1,5 +1,5 @@
 [project]
-name = "product-structure"
+name = "product_structure"
 version = "0.1.0"
 description = ""
 authors = [
@@ -23,7 +23,10 @@ build-backend = "poetry.core.masonry.api"
 dev = [
     "pytest (>=9.1.1,<10.0.0)",
     "ruff (>=0.17.2,<0.18.0)",
-    "taskipy (>=1.14.1,<2.0.0)"
+    "taskipy (>=1.14.1,<2.0.0)",
+    "pytest-cov (>=7.1.0,<8.0.0)",
+    "typos (>=1.51.1,<2.0.0)",
+    "httpx2 (>=2.16.0,<3.0.0)"
 ]
 
 
