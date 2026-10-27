@@ -26,8 +26,15 @@ class Arvore:
         return None
         
         
-    def remover(self, node):
-        pass
+    def remover(self, node:Node):
+        if node is None:
+            return None
+
+        if node.id in self.nodes:
+            self.nodes.pop(node.id)
+
+            for n in node.children:
+                self.remover(n)
 
     def alterar(self, new_value):
         pass
@@ -40,7 +47,14 @@ a = Arvore()
 
 n1 = Node(0, 1)
 n2 = Node(0, 2)
+n3 = Node(0, 3)
+n4 = Node(0, 4)
+n5 = Node(0, 5)
 a.inserir(n1)
 a.inserir(n2, n1)
+a.inserir(n3, n2)
+a.inserir(n4, n1)
+a.inserir(n5, n4)
+a.remover(n2)
 
-print(a.nodes)
+print([node.id for node in a.nodes.values()])
