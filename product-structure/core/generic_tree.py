@@ -36,25 +36,12 @@ class Arvore:
             for n in node.children:
                 self.remover(n)
 
-    def alterar(self, new_value):
-        pass
+    def alterar(self, node, new_value):
+        if node is None:
+            return None
+
+        if node.id in self.nodes:
+            self.nodes[node.id].value = new_value
 
     def exibir(self):
         pass
-
-
-a = Arvore()
-
-n1 = Node(0, 1)
-n2 = Node(0, 2)
-n3 = Node(0, 3)
-n4 = Node(0, 4)
-n5 = Node(0, 5)
-a.inserir(n1)
-a.inserir(n2, n1)
-a.inserir(n3, n2)
-a.inserir(n4, n1)
-a.inserir(n5, n4)
-a.remover(n2)
-
-print([node.id for node in a.nodes.values()])

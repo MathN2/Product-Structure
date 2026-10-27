@@ -1,6 +1,6 @@
 class Node:
-    def __init__(self, valor, id):
-        self.valor = valor
+    def __init__(self, value, id):
+        self.value = value
         self.id = id
         self.tree_id = None
         self.parent_id = None
