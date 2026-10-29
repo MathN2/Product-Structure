@@ -1,11 +1,10 @@
-from node import Node
+from product_structure.core.node import Node
 
 
 class Arvore:
     def __init__(self):
         self.root = None
         self.nodes = {}
-
 
     def inserir(self, node, parent=None):
         if node is None:
@@ -15,7 +14,7 @@ class Arvore:
             self.root = node
             self.nodes[node.node_id] = node
             return node
-        
+
         if parent.node_id in self.nodes:
             parent.children.append(node)
             node.parent = parent
@@ -23,12 +22,11 @@ class Arvore:
             return node
 
         else:
-            print('Pai inexistente.')
+            print("Pai inexistente.")
 
         return None
-        
-        
-    def remover(self, node:Node):
+
+    def remover(self, node: Node):
         if node is None:
             return
 
@@ -38,7 +36,6 @@ class Arvore:
             for n in node.children:
                 self.remover(n)
 
-
     def alterar(self, node, new_value):
         if node is None:
             return
@@ -46,24 +43,17 @@ class Arvore:
         if node.node_id in self.nodes:
             self.nodes[node.node_id].value = new_value
 
+    def buscar_por_id(self, search_id: int) -> Node | None:
+        return self.nodes.get(search_id)
+
+    def buscar_por_nome(self, name: str) -> dict[int, Node]:
+        resultado = {}
+
+        for node in self.nodes:
+            if node.value.nome == name:
+                resultado[node.node_id] = node
+
+        return resultado
 
     def exibir(self):
         pass
-
-a = Arvore()
-
-n1 = Node(1, 1)
-n2 = Node(2, 2)
-n3 = Node(3, 3)
-n4 = Node(4, 4)
-n5 = Node(5, 5)
-a.inserir(n1)
-a.inserir(n2, n1)
-a.inserir(n3, n2)
-a.inserir(n4, n1)
-a.inserir(n5, n4)
-a.remover(n2)
-a.alterar(n4, 8)
-
-print([node.node_id for node in a.nodes.values()])
-print([node.value for node in a.nodes.values()])
