@@ -1,8 +1,11 @@
-class Node:
-    def __init__(self, value, id):
-        self.value = value
-        self.id = id
-        self.tree_id = None
-        self.parent_id = None
-        self.children = []
-        self.depth = 0
+from dataclasses import dataclass, field
+
+
+@dataclass
+class Node[T]:
+        node_id: int
+        value: T
+        tree_id: int | None = None
+        parent: Node[T] | None = None
+        children: list[Node[T]] = field(default_factory=list)
+        depth: int = 0

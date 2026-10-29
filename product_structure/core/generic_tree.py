@@ -13,13 +13,13 @@ class Arvore:
 
         if parent is None:
             self.root = node
-            self.nodes[node.id] = node
+            self.nodes[node.node_id] = node
             return node
         
-        if parent.id in self.nodes:
+        if parent.node_id in self.nodes:
             parent.children.append(node)
-            node.parent_id = parent.id
-            self.nodes[node.id] = node
+            node.parent = parent
+            self.nodes[node.node_id] = node
             return node
 
         else:
@@ -32,8 +32,8 @@ class Arvore:
         if node is None:
             return
 
-        if node.id in self.nodes:
-            self.nodes.pop(node.id)
+        if node.node_id in self.nodes:
+            self.nodes.pop(node.node_id)
 
             for n in node.children:
                 self.remover(n)
@@ -43,8 +43,8 @@ class Arvore:
         if node is None:
             return
 
-        if node.id in self.nodes:
-            self.nodes[node.id].value = new_value
+        if node.node_id in self.nodes:
+            self.nodes[node.node_id].value = new_value
 
 
     def exibir(self):
@@ -65,5 +65,5 @@ a.inserir(n5, n4)
 a.remover(n2)
 a.alterar(n4, 8)
 
-print([node.id for node in a.nodes.values()])
+print([node.node_id for node in a.nodes.values()])
 print([node.value for node in a.nodes.values()])
