@@ -9,4 +9,3 @@ class Node[T]:
     parent: Node[T] | None = None
     children: list[Node[T]] = field(default_factory=list)
     depth: int = 0
-    

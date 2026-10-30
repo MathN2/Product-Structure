@@ -1,7 +1,7 @@
 class ItemFormula:
-    def __init__(self, nome, quatidade, preco):
+    def __init__(self, nome, quatidade, preco=0):
         self.nome = nome
-        self.quatidade = quatidade
+        self.quantidade = quatidade
         self.preco = preco
 
     def atualizar_quantidade(self, new_qtd):

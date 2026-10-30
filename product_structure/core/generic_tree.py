@@ -3,8 +3,11 @@ from product_structure.core.node import Node
 
 class ArvoreFormula:
     def __init__(self):
-        self.root = None
-        self.nodes = {}
+        self.root: Node | None = None
+        self.nodes: dict[int, Node] = {}
+
+    def get_nodes(self):
+        return self.nodes.values()
 
     def inserir(self, node, parent=None):
         if node is None:
@@ -49,11 +52,25 @@ class ArvoreFormula:
     def buscar_por_nome(self, name: str) -> dict[int, Node]:
         resultado = {}
 
-        for node in self.nodes:
+        for node in self.nodes.values():
             if node.value.nome == name:
                 resultado[node.node_id] = node
 
         return resultado
 
-    def exibir(self):
+    def implosao(self):
+        if not self.nodes:
+            print("n")
+            return
+
+        resultado = 0
+        for node in self.nodes.values():
+            if node.parent is None:
+                continue
+
+            resultado += node.value.preco
+
+        return resultado
+
+    def explosao(self):
         pass

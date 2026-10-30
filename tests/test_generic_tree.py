@@ -8,6 +8,7 @@ def test_tree_star_empty():
     assert arvore.root is None
     assert arvore.nodes == {}
 
+
 def test_insert_child_to_root():
     arvore = ArvoreFormula()
     root = Node("Caneta")
