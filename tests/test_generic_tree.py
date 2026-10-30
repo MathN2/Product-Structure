@@ -1,18 +1,17 @@
-from product_structure.core.generic_tree import Arvore
+from product_structure.core.generic_tree import ArvoreFormula
 from product_structure.core.node import Node
 
 
 def test_tree_star_empty():
-    arvore = Arvore()
+    arvore = ArvoreFormula()
 
     assert arvore.root is None
     assert arvore.nodes == {}
 
-
 def test_insert_child_to_root():
-    arvore = Arvore()
-    root = Node('Caneta')
-    child = Node('Tinta')
+    arvore = ArvoreFormula()
+    root = Node("Caneta")
+    child = Node("Tinta")
 
     arvore.inserir(root)
     arvore.inserir(child, root)

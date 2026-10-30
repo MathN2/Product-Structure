@@ -1,7 +1,7 @@
 from product_structure.core.node import Node
 
 
-class Arvore:
+class ArvoreFormula:
     def __init__(self):
         self.root = None
         self.nodes = {}
