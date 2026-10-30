@@ -1,0 +1,97 @@
+# Product Structure
+
+Sistema para representação e gerenciamento de fórmulas de produtos por meio de uma estrutura de árvore genérica, desenvolvido em Python para a disciplina de Estruturas de Dados II.
+
+## Sobre o projeto
+
+O projeto tem como objetivo representar a composição hierárquica de produtos, permitindo organizar seus componentes e realizar operações sobre as fórmulas cadastradas.
+
+A estrutura de árvore permite representar produtos compostos por outros itens, que também podem possuir seus próprios componentes.
+
+### Funcionalidades
+
+O projeto prevê as seguintes funcionalidades:
+
+- **Gerenciamento de produtos e componentes:** cadastro, consulta, atualização e remoção de registros.
+- **Representação hierárquica:** organização dos componentes por meio de uma árvore.
+- **Explosão de fórmula:** detalhamento da composição de um produto e de seus componentes.
+- **Cálculo de quantidades:** determinação das quantidades necessárias de componentes para produzir uma quantidade especificada de um produto.
+- **Cálculo de custos:** obtenção dos custos relacionados aos componentes e à produção.
+- **Implosão de fórmula:** análise dos componentes e dos custos associados à remontagem de um produto.
+
+> Algumas funcionalidades podem estar em desenvolvimento. A disponibilidade de cada operação depende do estado atual da implementação.
+
+## Tecnologias utilizadas
+
+- **Python:** linguagem de programação.
+- **Poetry:** gerenciamento de dependências e do ambiente do projeto.
+- **pytest:** execução de testes automatizados.
+
+Outras tecnologias poderão ser adicionadas conforme o desenvolvimento do projeto.
+
+## Requisitos
+
+Para trabalhar com o projeto, é necessário ter:
+
+- [Python](https://www.python.org/downloads/) em uma versão compatível com a configuração do projeto.
+- [pipx](https://pipx.pypa.io/stable/installation/) para instalação isolada de ferramentas Python, caso seja utilizado para instalar o Poetry.
+- [Poetry](https://python-poetry.org/docs/#installation/) para instalar e gerenciar as dependências do projeto.
+- [Git](https://git-scm.com/downloads) para clonar o repositório.
+
+Consulte as páginas oficiais para obter as instruções de instalação adequadas ao seu sistema operacional.
+
+## Instalação
+
+### 1. Clone o repositório
+
+```bash
+git clone https://github.com/MathN2/Product_Structure.git
+```
+
+Entre no diretório do projeto:
+
+```bash
+cd Product_Structure
+```
+
+### 2. Instale as dependências
+
+Na raiz do projeto, execute:
+
+```bash
+poetry install
+```
+
+O Poetry utilizará as configurações do projeto para instalar as dependências necessárias.
+
+## Executando o projeto
+
+As instruções específicas para iniciar o sistema serão documentadas conforme a definição da aplicação e de seu ponto de entrada.
+
+## Executando os testes
+
+O projeto utiliza `pytest` para executar os testes automatizados.
+
+Para executar os testes com o ambiente gerenciado pelo Poetry:
+
+```bash
+poetry run task test
+```
+
+Os testes devem verificar o comportamento das estruturas de dados e das operações implementadas, incluindo casos válidos e situações de erro.
+
+## Estrutura do projeto
+
+A organização dos diretórios poderá evoluir durante o desenvolvimento. A estrutura planejada contempla a separação entre a implementação das estruturas de dados, os serviços responsáveis pelas operações do sistema e os testes automatizados.
+
+Consulte os diretórios do repositório para verificar a organização atual do código.
+
+## Documentação
+
+A documentação técnica detalhará a estrutura da árvore, os nós, o armazenamento dos dados, a reconstrução das estruturas a partir do banco de dados e os contratos dos métodos.
+
+O documento será disponibilizado no diretório `docs/` conforme seu desenvolvimento.
+
+## Contexto acadêmico
+
+Projeto desenvolvido em grupo para a disciplina de Estruturas de Dados II, com foco na aplicação de estruturas de dados hierárquicas a um problema de representação e gerenciamento de fórmulas de produtos.
