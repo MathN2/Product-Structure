@@ -1,4 +1,5 @@
 from product_structure.core.node import Node
+from product_structure.core.exceptions import *
 
 
 class ArvoreFormula:
@@ -6,12 +7,14 @@ class ArvoreFormula:
         self.root: Node | None = None
         self.nodes: dict[int, Node] = {}
 
+
     def get_nodes(self):
         return self.nodes.values()
+    
 
     def inserir(self, node, parent=None):
         if node is None:
-            return None
+            raise NodeEmptyError("Node não pode ser None.")
 
         if parent is None:
             self.root = node
@@ -28,16 +31,15 @@ class ArvoreFormula:
             print("Pai inexistente.")
 
         return None
+    
 
     def remover(self, node: Node):
         if node is None:
-            return
+            raise NodeEmptyError("Node não pode ser None.")
 
         if node.node_id in self.nodes:
-            if node.parent is None:
-                return
-            
-            node.parent.children.remove(node)
+            if not node.parent is None:
+                node.parent.children.remove(node)
 
             self.nodes.pop(node.node_id)
 
@@ -47,7 +49,7 @@ class ArvoreFormula:
 
     def alterar(self, node, new_value):
         if node is None:
-            return
+            raise NodeEmptyError("Node não pode ser None.")
 
         if node.node_id in self.nodes:
             self.nodes[node.node_id].value = new_value
@@ -63,10 +65,10 @@ class ArvoreFormula:
                 resultado[node.node_id] = node
 
         return resultado
+    
 
     def implosao(self):
         if not self.nodes:
-            print("n")
             return
 
         resultado = 0

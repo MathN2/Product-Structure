@@ -1,10 +1,11 @@
 from product_structure.core.generic_tree import ArvoreFormula
 from product_structure.core.node import Node
+from product_structure.core.exceptions import *
 
 
 def explosao(produto: ArvoreFormula):
     if produto.root is None:
-        return
+        raise TreeEmptyError("Árvore vazia.")
 
     root = produto.root
 
@@ -21,7 +22,7 @@ def explosao(produto: ArvoreFormula):
 
 
 def formatacao_explosao(node: Node):
-    r = {
+    resultado = {
         "nome": node.value.nome,
         "quantidade": node.value.quantidade,
         "preco": node.value.preco,
@@ -29,6 +30,6 @@ def formatacao_explosao(node: Node):
     }
 
     for child in node.children:
-        r["componentes"].append(formatacao_explosao(child))
+        resultado["componentes"].append(formatacao_explosao(child))
 
-    return r
+    return resultado
