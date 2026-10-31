@@ -34,10 +34,16 @@ class ArvoreFormula:
             return
 
         if node.node_id in self.nodes:
+            if node.parent is None:
+                return
+            
+            node.parent.children.remove(node)
+
             self.nodes.pop(node.node_id)
 
             for n in node.children:
                 self.remover(n)
+
 
     def alterar(self, node, new_value):
         if node is None:
